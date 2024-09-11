@@ -1,1 +1,3 @@
 # Laborator
+
+Tovmasyan Avetiq
