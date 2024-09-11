@@ -1,9 +1,12 @@
 #include <iostream>
+#include <cmath>
+
 using namespace std;
 
 void MaxMin(int a, int b){
-    int c = 0;
 
+    a = abs(a);
+    b = abs(b);
     while(a != b){
         while(a > b){
             
