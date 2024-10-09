@@ -1,38 +1,24 @@
 #include <iostream>
-#include <cstring>
+#include <vector>
 using namespace std;
 
-int main(){
-    char Alphabet[] = "abcdefghijklmnopqrstuvwxyz";
+int main() {
+    vector<char> Tox = {'a', 'a', 'a', 'a', 'b', 'b', 'b', 'c', 'c'};
+    vector<pair<char, int>> Str;
+    int count = 1;
 
-    char str[] = "program";
-    char key[] = "dogdogd";
-    int k = strlen(str);
-    char encode[8];
-    
-    for(int i = 0; i < k; i++){
-        int temp = 0;
-        for(int j = 0; j < 26; j++){
-            
-            if(str[i] == Alphabet[j]){
-                temp = j;
-                break;
-            }
+    for (size_t i = 0; i < Tox.size(); i++) {
+        if (i < Tox.size() - 1 && Tox[i] == Tox[i + 1]) {
+            count++;
+        } else {
+            Str.push_back(make_pair(Tox[i], count));
+            count = 1;
         }
-
-        int keyIndex = 0;
-        for(int j = 0; j < 26; j++){
-            if(key[i] == Alphabet[j]){
-                keyIndex = j;
-                break;
-            }
-        }
-
-        encode[i] = Alphabet[(temp + keyIndex) % 26];
     }
-    encode[k] = '\0';
 
-    cout << "Encoded --- " << encode << endl;
-
+    for (const auto& p : Str) {
+        cout << p.first<< p.second;
+    }
+    
     return 0;
 }
