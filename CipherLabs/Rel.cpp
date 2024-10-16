@@ -10,7 +10,7 @@ string Rel::encrypt(const string &text, int key) {
     ostringstream encryptedText;
     int count = 1;
 
-    for (size_t i = 0; i < text.size(); ++i) {
+    for (int i = 0; i < text.size(); ++i) {
         if (i < text.size() - 1 && text[i] == text[i + 1]) {
             count++;
         } else {
@@ -26,7 +26,7 @@ string Rel::decrypt(const string &text, int key) {
     if (text.empty()) return "";
 
     ostringstream decryptedText;
-    for (size_t i = 0; i < text.size(); i += 2) {
+    for (int i = 0; i < text.size(); i += 2) {
         char c = text[i];
         int count = text[i + 1] - '0';  
         decryptedText << string(count, c); 
