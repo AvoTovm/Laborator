@@ -9,8 +9,8 @@ string Caesar::encrypt(const string &text, int key) {
     int normalized = normalizeShift(key);
 
     for (char c : text) {
-        if (c >= 32 && c <= 126) {
-            char encodedChar = 32 + (c - 32 + normalized) % 95;
+        if (c >= 0 && c <= 255) {
+            char encodedChar = (c  + normalized) % 256;
             encodedText += encodedChar;
         } else {
             encodedText += c;
@@ -26,8 +26,8 @@ string Caesar::decrypt(const string &text, int key) {
     int normalized = normalizeShift(key);
 
     for (char c : text) {
-        if (c >= 32 && c <= 126) {
-            char decodedChar = 32 + (c - 32 - normalized + 95) % 95;
+        if (c >= 0 && c <= 255) {
+            char decodedChar = (c - normalized + 256) % 256;
             decodedText += decodedChar;
         } else {
             decodedText += c;
@@ -38,5 +38,5 @@ string Caesar::decrypt(const string &text, int key) {
 
 
 int Caesar::normalizeShift(int key) {
-    return (key % 95 + 95) % 95;
+    return (key % 256 + 256) % 256;
 }
