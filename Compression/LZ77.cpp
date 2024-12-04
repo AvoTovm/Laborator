@@ -4,11 +4,6 @@
 
 using namespace std;
 
-struct Token {
-    int position;
-    int length;
-};
-
 string LZ77(const string& input, int maxWindowSize, int maxMatchLength){
     string res;
     int currPos = 0;
