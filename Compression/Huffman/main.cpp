@@ -6,7 +6,7 @@ using namespace std;
 
 int main(){
     string text;
-    cout << "Enter text ";
+    cout<<"Enter text --";
     getline(cin, text);
 
     Huffman huffman;
